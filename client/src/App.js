@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import Login from "./Components/Login";
 import "./reset.css";
 
 function App() {
@@ -11,7 +12,11 @@ function App() {
       .then((res) => res.json())
       .then((data) => setData(data.message));
   }, []);
-  return <div></div>;
+  return (
+    <div>
+      <Login />
+    </div>
+  );
 }
 
 export default App;
