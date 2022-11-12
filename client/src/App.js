@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./App.css";
-import Login from "./Components/Login";
-import "./reset.css";
+import "./styles/App.css";
+import Login from "./Components/Login/Login";
+import "./styles/reset.css";
 
 function App() {
   const [data, setData] = useState(null);
