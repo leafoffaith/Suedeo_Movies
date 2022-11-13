@@ -1,0 +1,16 @@
+.login__container {
+  background-color: white;
+  width: 30%;
+  margin: auto;
+  margin-top: 8rem;
+  border-radius: 1rem;
+  padding: 1.5rem 1.5rem;
+
+  .heading {
+    margin-bottom: 2rem;
+  }
+
+  > * {
+    margin-bottom: 1rem;
+  }
+}

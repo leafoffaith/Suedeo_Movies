@@ -8,20 +8,26 @@ export default function Login() {
 
   return (
     <div className="login__container">
-      Login Component
-      <div className="login__email_container">
+      <h2 className="heading">Login</h2>
+      <div className="login__email_container text-input-field-container">
         <label>Email Address</label>
-        <input type={"text"} value={email} onChange={(e) => emailOnchange(e)} />
+        <input
+          type={"text"}
+          value={email}
+          onChange={(e) => emailOnchange(e)}
+          className="text-input"
+        />
       </div>
-      <div className="login__email_container">
+      <div className="login__email_container text-input-field-container">
         <label>Password</label>
         <input
           type={"password"}
           value={password}
           onChange={(e) => passwordOnChange(e)}
+          className="text-input"
         />
       </div>
-      <button>Login</button>
+      <button className="btn">Login</button>
     </div>
   );
 }
