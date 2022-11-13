@@ -2,7 +2,7 @@
   "name": "movie-recommendation-app",
   "version": "1.0.0",
   "description": "Create a web application that provides a login screen. Give the user multiple grid lists of movies to choose from and let them pick the ones that they like. Suggest movies for them using the same layout. Allow the user to rate the movies they have watched postively or negatively.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "concurrently \"cd backend && npm run server\" \"cd frontend && npm start\""
   },
