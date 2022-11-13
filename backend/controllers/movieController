@@ -1,0 +1,65 @@
+const asyncHandler = require('express-async-handler')
+const Movie = require('../models/movieModel')
+
+// @desc    Get movies
+// @route   GET /api/movies
+// @access  Private
+const getMovies = asyncHandler(async (req, res) => {
+  const movies = await Movie.find()
+  console.log('test')
+  res.status(200).json(movies)
+})
+
+// @desc    Set movie
+// @route   SET /api/movies
+// @access  Private
+const setMovie = asyncHandler(async (req, res) => {
+  if (!req.body.text) {
+    res.status(400)
+    throw new Error('Please add a text field')
+  }
+
+  const movie = await Movie.create({
+    text: req.body.text,
+  })
+  res.status(200).json(movie)
+})
+
+// @desc    Update Movie
+// @route   PUT /api/Movies/:id
+// @access  Private
+const updateMovie = asyncHandler(async (req, res) => {
+  const Movie = await Movie.findById(req.params.id)
+
+  if (!Movie) {
+    res.status(400)
+    throw new Error('Movie not found.')
+  }
+
+  const updatedMovie = await Movie.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+  })
+
+  res.status(200).json({ updatedMovie })
+})
+
+// @desc    Delete Movie
+// @route   DELETE /api/Movies/:id
+// @access  Private
+const deleteMovie = asyncHandler(async (req, res) => {
+  const Movie = await Movie.findById(req.params.id)
+  if (!Movie) {
+    res.status(400)
+    throw new Error('Movie not found.')
+  }
+
+  const deletedMovie = await Movie.findByIdAndDelete(req.params.id)
+  res.status(200).json({ deletedMovie })
+})
+
+module.exports = {
+  getMovies,
+  setMovie,
+  updateMovie,
+  deleteMovie,
+}
