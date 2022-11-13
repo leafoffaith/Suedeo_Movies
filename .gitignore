@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-node_modules
-=======
+
 **/node_modules/
->>>>>>> 6acaa23 (completed frontend ui, unresponsive without scss structure)
 .env

@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 // goal route
-=======
->>>>>>> 6acaa23 (completed frontend ui, unresponsive without scss structure)
 const express = require('express')
 const { update } = require('tar')
 const router = express.Router()
