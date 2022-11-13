@@ -4,7 +4,7 @@
   "description": "Create a web application that provides a login screen. Give the user multiple grid lists of movies to choose from and let them pick the ones that they like. Suggest movies for them using the same layout. Allow the user to rate the movies they have watched postively or negatively.",
   "main": "server.js",
   "scripts": {
-    "dev": "concurrently \"cd backend && npm run server\" \"cd frontend && npm start\""
+    "dev": "concurrently \"nodemon server.js\" \"cd frontend && npm start\""
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,10 @@
   "devDependencies": {
     "concurrently": "^7.5.0",
     "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
   }
 }
