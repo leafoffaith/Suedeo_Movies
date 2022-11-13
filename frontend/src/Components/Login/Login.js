@@ -10,7 +10,7 @@ export default function Login() {
     <div className='login__container'>
       Login Component
       <div className='login__email_container'>
-        <label>Email Addressssss</label>
+        <label>Email Address</label>
         <input type={'text'} value={email} onChange={(e) => emailOnchange(e)} />
       </div>
       <div className='login__email_container'>
