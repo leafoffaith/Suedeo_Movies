@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
   "homepage": "https://reeceawalsh.github.io/sudeo_movies",
-=======
-  "homepage" : "https://reeceawalsh.github.io/sudeo_movies",
->>>>>>> parent of 4bbc315 (Updates)
   "name": "client",
   "version": "0.1.0",
   "private": true,
