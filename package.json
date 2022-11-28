@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/reeceawalsh/movie-recommendation-app#readme",
   "devDependencies": {
-    "concurrently": "^7.5.0",
+    "concurrently": "^7.6.0",
     "nodemon": "^2.0.20"
   },
   "dependencies": {

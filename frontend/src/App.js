@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import "./styles/reset.css";
 import "./styles/App.css";
 import "./styles/scss/main.scss";
-import Login from "./Components/Login/Login";
+import "./styles/scss/app.scss";
+import Login from "./Pages/Login/Login";
+import Home from "./Pages/Home/Home"; 
 
 function App() {
   const [data, setData] = useState(null);
@@ -10,7 +12,8 @@ function App() {
 
   return (
     <div>
-      <Login />
+      {/* <Login /> */}
+      <Home/>
     </div>
   );
 }
