@@ -1,5 +1,6 @@
 {
-  "name": "movie-recommendation-app",
+  "homepage" : "https://reeceawalsh.github.io/sudeo_movies",
+  "name": "Suedeo",
   "version": "1.0.0",
   "description": "Create a web application that provides a login screen. Give the user multiple grid lists of movies to choose from and let them pick the ones that they like. Suggest movies for them using the same layout. Allow the user to rate the movies they have watched postively or negatively.",
   "main": "server.js",
@@ -8,15 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/reeceawalsh/movie-recommendation-app.git"
+    "url": "git+https://github.com/reeceawalsh/Suedeo_Movies.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/reeceawalsh/movie-recommendation-app/issues"
+    "url": "https://github.com/reeceawalsh/Suedeo_Movies/issues"
   },
-  "homepage": "https://github.com/reeceawalsh/movie-recommendation-app#readme",
   "devDependencies": {
     "concurrently": "^7.6.0",
     "nodemon": "^2.0.20"

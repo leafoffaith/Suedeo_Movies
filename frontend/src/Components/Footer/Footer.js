@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="container">
-        <span>Created by </span>
+        <span>https://github.com/reeceawalsh/Suedeo_Movies</span>
       </div>
     </div>
   );

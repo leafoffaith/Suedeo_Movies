@@ -1,8 +1,8 @@
 .movieItem {
-  width: 250px;
-  height: 300px;
+  width: 200px;
+  height: 250px;
   background-color: var(--main-color);
-  margin-right: 10px;
+  margin-right: 20px;
   overflow: auto;
   cursor: pointer;
   color: white;
@@ -16,7 +16,7 @@
 
   &:hover {
     img {
-      height: 160px;
+      height: 130px;
     }
 
     #itemInfo {
