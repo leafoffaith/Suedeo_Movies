@@ -1,6 +1,6 @@
 import React from 'react'
 import useInput from '../../hooks/useInput'
-import './Login.scss'
+import './login.scss'
 
 export default function Login() {
   const { email, emailOnchange } = useInput('')
@@ -13,15 +13,17 @@ export default function Login() {
         <div className='left__content'>
           <h1>Get The Best Movie Recommendations</h1>
           <h3 className='left_desc'>
-            (completed frontend ui, unresponsive without scss structure) ...in
-            your fingertips. We will provide you with the next best movie you
-            can watch by knowing about your movie preferences. Quick, give it a
-            try now
+            We deliver the best and latest TV and Film recommendations that are currently available on the platforms of your choice. Choose movies that you love, or hate, in order to give us the best chance of providing perfect matches for you. Grab your popcorn and sign up for free today! 
           </h3>
           <button className='btn btn-xl cta-btn signup_btn'>Sign up!</button>
         </div>
       </div>
       <div className='login__container'>
+        <img
+            id="profile-img"
+            src={require("../../Logos/RectangleLogo.png")}
+            alt="Users profile picture"
+          />
         <h2 className='heading'>Login</h2>
         <div className='login__email_container text-input-field-container'>
           <label>Email Address</label>
@@ -42,6 +44,7 @@ export default function Login() {
           />
         </div>
         <button className='btn btn-lg'>Login</button>
+        <href id="reset-password">Reset Password</href>
       </div>
     </div>
   )

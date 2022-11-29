@@ -14,10 +14,10 @@ const Navbar = () => {
             src={require("../../Logos/RectangleLogo.png")}
             alt="Suedeo Logo"
           />
-          <span>Home</span>
-          <span>Series</span>
-          <span>Movies</span>
-          <span>Watch List</span>
+          <span class="navBarLink" id="home-link">Home</span>
+          <span class="navBarLink" id="series-link">Series</span>
+          <span class="navBarLink" id="movies-link">Movies</span>
+          <span class="navBarLink" id="watch-list-link">Watch List</span>
         </div>
         <div className="navRight">
           <TextField id="search"
@@ -38,7 +38,7 @@ const Navbar = () => {
           <div className="icon" />
           <img
             id="profile-img"
-            src={require("../../Logos/Suedo_Movies_Logo.jpeg")}
+            src={require("../../Logos/Suedeo_Movies_Logo.jpeg")}
             alt="Users profile picture"
           />
           <div className="profile">

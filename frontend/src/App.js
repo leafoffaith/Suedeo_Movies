@@ -5,6 +5,7 @@ import "./styles/scss/main.scss";
 import "./styles/scss/app.scss";
 import Login from "./Pages/Login/Login";
 import Home from "./Pages/Home/Home"; 
+import Settings from "./Pages/Settings/Settings"
 
 function App() {
   const [data, setData] = useState(null);
@@ -12,8 +13,9 @@ function App() {
 
   return (
     <div>
-      {/* <Login /> */}
-      <Home/>
+      <Login />
+      {/* <Home/> */}
+      {/* <Settings /> */}
     </div>
   );
 }
