@@ -1,5 +1,11 @@
 import "./movieItem.scss";
 import { useState } from "react";
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import StarIcon from '@mui/icons-material/Star';
+import StarHalfIcon from '@mui/icons-material/StarHalf';
+import StarOutlineIcon from '@mui/icons-material/StarOutline';
+import Star from "@mui/icons-material/Star";
 
 export default function ListItem({ index }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -27,9 +33,23 @@ export default function ListItem({ index }) {
               Into the world of the Emperor Penguins, who find their soul mates through song, a penguin is born who cannot sing. But he can tap dance something fierce!
             </div>
             <div id="genre">Comedy</div>
+            <div id="rating">
+            <ThumbDownIcon class="rating" size="small"/>
+            <ThumbUpIcon class="rating" size="small"/>
+          </div>
           </div>
         </>
       )}
+      <div id="bottom">
+        <span id="firstTitle">Happy Feet</span>
+        <div id="stars">
+          <StarIcon class="star" />
+          <StarIcon class="star" />
+          <StarIcon class="star" />
+          <StarHalfIcon class="star" />
+          <StarOutlineIcon class="star" />
+        </div>
+      </div>
     </div>
   );
 }
