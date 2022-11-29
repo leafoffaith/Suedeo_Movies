@@ -1,5 +1,6 @@
 import MovieItem from "../MovieItem/MovieItem";
 import "./list.scss";
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 export default function List() {
 
@@ -12,11 +13,9 @@ export default function List() {
           <MovieItem index={2} />
           <MovieItem index={3} />
           <MovieItem index={4} />
-          <MovieItem index={5} />
-          <MovieItem index={6} />
-          <MovieItem index={7} />
-          <MovieItem index={8} />
-          <MovieItem index={9} />
+          <ArrowForwardIosIcon
+          id="nextMovies"
+          size="medium" />
         </div>
       </div>
     </div>
