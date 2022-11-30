@@ -19,7 +19,7 @@ const getBackDropURL = (backdrop_path) => {
 
 // Ensures the description is only 150 characters long. 
 const description = (overview) => {
-  const length = 250 // Change length of text
+  const length = 180 // Change length of text
   if (overview.length > length) {
     return overview.slice(0, length) + "..."
   } else {
