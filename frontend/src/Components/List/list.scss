@@ -4,10 +4,8 @@
   margin-top: 50px;
   margin-left: 4em;
   margin-right: 5em;
-  max-width: 86%;
-  overflow: hidden;
-  // max-width: 86%;
-  // overflow: scroll; 
+  // overflow: hidden;
+  overflow: scroll; 
 
   .listTitle {
     color: white;
@@ -35,9 +33,15 @@
     .container {
       margin-left: 50px;
       display: flex;
+      flex-direction: column;
       margin-top: 10px;
       width: max-content;
       transform: translateX(0px);
       transition: all 1s ease;
+    }
+
+    #movie-item-container {
+      display: flex;
+      flex-direction: row;
     }
   }

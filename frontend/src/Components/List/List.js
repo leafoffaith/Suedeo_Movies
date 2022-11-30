@@ -2,12 +2,17 @@ import MovieItem from "../MovieItem/MovieItem";
 import "./list.scss";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
-export default function List() {
+export default function List({streamingProvider}) {
 
   return (
     <div className="list">
       <div className="wrapper">
         <div className="container">
+        {/* {Movies.map((movie, index) => {
+          return <MovieItem key={index} {...movie} />
+        })} */}
+        <h1>{streamingProvider}Netflix</h1>
+        <div id="movie-item-container">
           <MovieItem index={0} />
           <MovieItem index={1} />
           <MovieItem index={2} />
@@ -23,9 +28,10 @@ export default function List() {
           <MovieItem index={12} />
           <MovieItem index={13} />
           <MovieItem index={14} />
-          <ArrowForwardIosIcon
+          </div>
+          {/* <ArrowForwardIosIcon
           id="nextMovies"
-          size="medium" />
+          size="medium" /> */}
         </div>
       </div>
     </div>

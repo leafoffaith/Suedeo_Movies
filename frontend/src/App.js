@@ -13,8 +13,8 @@ function App() {
 
   return (
     <div>
-      <Login />
-      {/* <Home/> */}
+      {/* <Login /> */}
+      <Home/>
       {/* <Settings /> */}
     </div>
   );

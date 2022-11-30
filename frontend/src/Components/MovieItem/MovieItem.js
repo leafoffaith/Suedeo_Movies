@@ -7,7 +7,7 @@ import StarHalfIcon from '@mui/icons-material/StarHalf';
 import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import Star from "@mui/icons-material/Star";
 
-export default function ListItem({ index }) {
+export default function MovieItem({ index, imageURL, title, duration, parentalRating, date, desc, genre, userRating }) {
   const [isHovered, setIsHovered] = useState(false);
   return (
     <div
@@ -17,22 +17,22 @@ export default function ListItem({ index }) {
       onMouseLeave={() => setIsHovered(false)}
     >
       <img
-        src={require("../../Logos/happyfeet.jpeg")}
+        src={imageURL}
         alt=""
       />
       {isHovered && (
         <>
           <div id="itemInfo">
-          <span id="title">Happy Feet</span>
+          <span id="title">{title}</span>
             <div id="itemInfoTop">
-              <span id="duration">1 hour 48 mins</span>
-              <span id="rating">U</span>
-              <span id="year">2006</span>
+              <span id="duration">{duration}</span>
+              <span id="rating">{parentalRating}</span>
+              <span id="year">{date}</span>
             </div>
             <div id="desc">
-              Into the world of the Emperor Penguins, who find their soul mates through song, a penguin is born who cannot sing. But he can tap dance something fierce!
+              {desc}
             </div>
-            <div id="genre">Comedy</div>
+            <div id="genre">{genre}</div>
             <div id="rating">
             <ThumbDownIcon class="rating" size="small"/>
             <ThumbUpIcon class="rating" size="small"/>
@@ -43,6 +43,7 @@ export default function ListItem({ index }) {
       <div id="bottom">
         <span id="firstTitle">Happy Feet</span>
         <div id="stars">
+          {userRating}
           <StarIcon class="star" />
           <StarIcon class="star" />
           <StarIcon class="star" />
