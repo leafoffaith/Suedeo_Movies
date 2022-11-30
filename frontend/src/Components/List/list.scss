@@ -1,7 +1,10 @@
 .list {
   position: relative;
   width: 100%;
-  margin-top: 50px;
+  max-width: 95%;
+  margin-left: 4em;
+  // overflow: hidden;
+  overflow: scroll; 
 
   .listTitle {
     color: white;
@@ -22,9 +25,10 @@
       }
     }
     .container {
-      margin-left: 50px;
       display: flex;
-      margin-top: 10px;
+      flex-direction: row;
+      margin-left: 50px;
+      margin-right: 50px;
       width: max-content;
       transform: translateX(0px);
       transition: all 1s ease;

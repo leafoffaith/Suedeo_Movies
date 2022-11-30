@@ -39,18 +39,23 @@ label {
   border: none;
 }
 
-.btn {
-  border: none;
-  background-color: #ed886f;
-  color: white;
-  padding: 0.7rem 2rem;
+ .btn {
+  color: black;
+  padding: 0.4rem 1.6rem;
   border-radius: 1.2rem;
   cursor: pointer;
-  font-size: 1rem;
-}
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  border: 1px black solid; 
+ }
+
+ .btn:hover, .btn:focus, .btn:active {
+  border: black 2px solid; 
+  font-size: 1.05rem;
+ }
 
 .btn-lg {
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding: 0.9rem 2.3rem;
 }
 

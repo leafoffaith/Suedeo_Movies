@@ -7,10 +7,13 @@ const Home = () => {
   return (
     <div className="home">
       <Navbar />
+      <h1 className="streamingProvider">Netflix</h1>
       <List />
+      <h1 className="streamingProvider">Amazon Prime</h1>
       <List />
+      <h1 className="streamingProvider">Disney+</h1>
       <List />
-      <List />
+      <h1 className="streamingProvider">Hulu</h1>
       <List />
       <Footer />
     </div>
