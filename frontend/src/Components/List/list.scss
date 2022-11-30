@@ -1,8 +1,8 @@
 .list {
   position: relative;
   width: 100%;
-  max-width: 89%;
-  margin-left: 3em;
+  max-width: 95%;
+  margin-left: 4em;
   // overflow: hidden;
   overflow: scroll; 
 
@@ -25,17 +25,12 @@
       }
     }
     .container {
+      display: flex;
+      flex-direction: row;
       margin-left: 50px;
       margin-right: 50px;
-      display: flex;
-      flex-direction: column;
       width: max-content;
       transform: translateX(0px);
       transition: all 1s ease;
-    }
-
-    #movie-item-container {
-      display: flex;
-      flex-direction: row;
     }
   }
