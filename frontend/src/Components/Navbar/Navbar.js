@@ -14,10 +14,10 @@ const Navbar = () => {
             src={require("../../Logos/RectangleLogo.png")}
             alt="Suedeo Logo"
           />
-          <span class="navBarLink" id="home-link">Home</span>
-          <span class="navBarLink" id="series-link">Series</span>
-          <span class="navBarLink" id="movies-link">Movies</span>
-          <span class="navBarLink" id="watch-list-link">Watch List</span>
+          <span className="navBarLink" id="home-link">Home</span>
+          <span className="navBarLink" id="series-link">Series</span>
+          <span className="navBarLink" id="movies-link">Movies</span>
+          <span className="navBarLink" id="watch-list-link">Watch List</span>
         </div>
         <div className="navRight">
           <TextField id="search"

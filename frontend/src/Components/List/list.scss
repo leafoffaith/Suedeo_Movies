@@ -1,9 +1,8 @@
 .list {
   position: relative;
   width: 100%;
-  margin-top: 50px;
-  margin-left: 4em;
-  margin-right: 4em;
+  max-width: 89%;
+  margin-left: 3em;
   // overflow: hidden;
   overflow: scroll; 
 
@@ -12,11 +11,6 @@
     font-size: 20px;
     font-weight: 500;
     margin-left: 50px;
-  }
-
-  #nextMovies {
-    font-size: 3em;
-    margin-top: 120px;
   }
 
   .wrapper {
@@ -35,7 +29,6 @@
       margin-right: 50px;
       display: flex;
       flex-direction: column;
-      margin-top: 10px;
       width: max-content;
       transform: translateX(0px);
       transition: all 1s ease;

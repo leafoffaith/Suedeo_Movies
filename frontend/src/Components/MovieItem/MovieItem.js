@@ -44,11 +44,11 @@ export default function MovieItem({ index, imageURL, title, duration, parentalRa
         <span id="firstTitle">Happy Feet</span>
         <div id="stars">
           {userRating}
-          <StarIcon class="star" />
-          <StarIcon class="star" />
-          <StarIcon class="star" />
-          <StarHalfIcon class="star" />
-          <StarOutlineIcon class="star" />
+          <StarIcon className="star" />
+          <StarIcon className="star" />
+          <StarIcon className="star" />
+          <StarHalfIcon className="star" />
+          <StarOutlineIcon className="star" />
         </div>
       </div>
     </div>

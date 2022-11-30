@@ -1,17 +1,25 @@
 import MovieItem from "../MovieItem/MovieItem";
 import "./list.scss";
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { useEffect, useState} from "react"
 
+const Movies = [
+  {
+    title: 'Mr Man'
+  }
+]
 export default function List({streamingProvider}) {
+  const [movies, setMovies] = useState([])
+
+  useEffect(() => {
+    // fetch movie
+    const movieData = Movies
+    setMovies(movieData)
+  },[])
 
   return (
     <div className="list">
       <div className="wrapper">
         <div className="container">
-        {/* {Movies.map((movie, index) => {
-          return <MovieItem key={index} {...movie} />
-        })} */}
-        <h1>{streamingProvider}Netflix</h1>
         <div id="movie-item-container">
           <MovieItem index={0} />
           <MovieItem index={1} />
