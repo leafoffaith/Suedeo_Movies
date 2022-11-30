@@ -18,18 +18,12 @@
   },
   "homepage": "https://github.com/reeceawalsh/movie-recommendation-app#readme",
   "dependencies": {
-<<<<<<< HEAD
-=======
     "bcryptjs": "^2.4.3",
->>>>>>> 62e134cd48a85df752760c4faa803ca0c65a36e4
     "colors": "^1.4.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
-<<<<<<< HEAD
-    "mongoose": "^6.7.2"
-=======
+    "mongodb": "^4.12.1",
     "mongoose": "^6.7.3"
->>>>>>> 62e134cd48a85df752760c4faa803ca0c65a36e4
   }
 }
