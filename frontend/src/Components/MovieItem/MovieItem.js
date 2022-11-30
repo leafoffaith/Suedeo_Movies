@@ -22,11 +22,12 @@ const description = (overview) => {
 const starRating = (vote_average) => {
   const stars = [
     <StarOutlineIcon className="star" />,
-     <StarOutlineIcon className="star" />,
-     <StarOutlineIcon className="star" />,
- <StarOutlineIcon className="star" />,
-<StarOutlineIcon className="star" />,
+    <StarOutlineIcon className="star" />,
+    <StarOutlineIcon className="star" />,
+    <StarOutlineIcon className="star" />,
+    <StarOutlineIcon className="star" />,
   ]
+
   const outOfFive = vote_average / 2
   const decimalPart = outOfFive.toString().split('.')[1]
   for (let i = 0; i + 0.9 < outOfFive; i++) {
@@ -35,11 +36,7 @@ const starRating = (vote_average) => {
   if (decimalPart != 0 && decimalPart >= 5) {
     stars[outOfFive] = <StarHalfIcon className="star" />
   }
-  for (let i = outOfFive; i < 5; i++) {
-    stars[i] = <StarOutlineIcon className="star" />
-  }
   return stars
-
 }
 
 export default function MovieItem({ index, poster_path, title, duration, parentalRating, release_date, overview, genre, vote_average }) {
@@ -69,14 +66,14 @@ export default function MovieItem({ index, poster_path, title, duration, parenta
             </div>
             <div id="genre">{genre}</div>
             <div id="rating">
-            <ThumbDownIcon className="rating" size="small"/>
-            <ThumbUpIcon className="rating" size="small"/>
+            <ThumbDownIcon className="rating" id="thumb-down" size="small"/>
+            <ThumbUpIcon className="rating" id="thumb-up" size="small"/>
           </div>
           </div>
         </>
       )}
       <div id="bottom">
-        <span id="firstTitle">{title}</span>
+        {/* <span id="firstTitle">{title}</span> */}
         <div id="stars">
           {starRating(vote_average)}
         </div>
