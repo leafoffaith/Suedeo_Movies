@@ -12,22 +12,6 @@ const Home = () => {
       {movieLists.map((item, index) => {
         return <><h1 className="streamingProvider">{item}</h1><List pages={index + 1} /></>
       })}
-      {/* <h1 className="streamingProvider">Netflix</h1>
-      <List pages="2"/>
-      <h1 className="streamingProvider">Amazon Prime</h1>
-      <List pages="3"/>
-      <h1 className="streamingProvider">Disney+</h1>
-      <List pages="4"/>
-      <h1 className="streamingProvider">Hulu</h1>
-      <List pages="5"/>
-      <h1 className="streamingProvider">Netflix</h1>
-      <List pages="6"/>
-      <h1 className="streamingProvider">Amazon Prime</h1>
-      <List pages="7"/>
-      <h1 className="streamingProvider">Disney+</h1>
-      <List pages="8"/>
-      <h1 className="streamingProvider">Hulu</h1>
-      <List pages="9"/> */}
       <Footer />
     </div>
   );
