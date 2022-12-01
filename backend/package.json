@@ -1,28 +1,29 @@
 {
-  "name": "movie-recommendation-app",
+  "name": "Seudeo",
   "version": "1.0.0",
-  "description": "Create a web application that provides a login screen. Give the user multiple grid lists of movies to choose from and let them pick the ones that they like. Suggest movies for them using the same layout. Allow the user to rate the movies they have watched postively or negatively.",
+  "description": "Website that recommends movies based on the user's movie preferences. ",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/reeceawalsh/movie-recommendation-app.git"
+    "url": "git+https://github.com/reeceawalsh/suedeo_movies.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/reeceawalsh/movie-recommendation-app/issues"
+    "url": "https://github.com/reeceawalsh/seudeo_movies/issues"
   },
-  "homepage": "https://github.com/reeceawalsh/movie-recommendation-app#readme",
+  "homepage": "https://reeceawalsh.github.io/Suedeo_Movies/",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
-    "mongoose": "^6.7.3"
+    "mongodb": "^4.12.1",
+    "mongoose": "^6.7.5"
   }
 }

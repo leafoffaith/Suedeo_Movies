@@ -17,29 +17,45 @@
   }
 
   &:hover {    
-    img {
-      height: 130px;
+    #poster {
+      display: none;
+    }
+
+    #backdrop {
+      position: absolute; 
+      z-index: 0; 
+      width: 200px;
+      height: 310px;
+      opacity: 0.2;
     }
 
     #itemInfo {
+      z-index: 1; 
       display: flex;
       flex-direction: column;
+      font-family:sans-serif;
       padding: 5px;
       }
       #itemInfoTop {
         display: flex;
         align-items: center;
         margin-bottom: 10px;
-        font-size: 14px;
         font-weight: 600;
         color: gray;
       }
 
-      #desc {
-        text-overflow: ellipsis;
-        font-size: 13px;
+      #title {
+        font-size: 1.3em;
+        font-weight:600; 
         margin-bottom: 10px;
-        max-height: 10ch;
+      }
+
+      #desc {
+        height: 120px;
+        text-align: left;
+        text-overflow: ellipsis;
+        font-size: 15px;
+        margin-bottom: 10px;
       }
 
       #genre {
@@ -48,7 +64,7 @@
       }
 
       #rating {
-        position: relative;
+        z-index: 1;
         display: flex;
         justify-content: space-between;
         justify-items: flex-end;
@@ -66,6 +82,23 @@
 
       #stars {
         display: none; 
+      }
+
+      #movie-buttons {
+        display: flex;
+        flex-direction: column; 
+      }
+
+      #movie-buttons button {
+        z-index: 1;
+        margin-top: 5px;
+      }
+
+      .button:hover {
+        cursor: grab;
+        background-color: black;
+        color: white;
+        padding: 2px;
       }
     }
 

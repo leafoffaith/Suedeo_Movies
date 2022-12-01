@@ -39,7 +39,7 @@ const Navbar = () => {
           <img
             id="profile-img"
             src={require("../../Logos/Suedeo_Movies_Logo.jpeg")}
-            alt="Users profile picture"
+            alt="Profile Pic"
           />
           <div className="profile">
             <div className="icon" />

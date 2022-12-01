@@ -3,18 +3,15 @@ import "./home.scss";
 import List from "../../Components/List/List";
 import Footer from "../../Components/Footer/Footer"
 
+const movieLists = ['Netflix', 'Amazon Prime', 'Disney+', 'Hulu', 'YouTube', 'HBO', 'Apple TV', 'Peacock', 'ITV']
+
 const Home = () => {
   return (
     <div className="home">
       <Navbar />
-      <h1 className="streamingProvider">Netflix</h1>
-      <List />
-      <h1 className="streamingProvider">Amazon Prime</h1>
-      <List />
-      <h1 className="streamingProvider">Disney+</h1>
-      <List />
-      <h1 className="streamingProvider">Hulu</h1>
-      <List />
+      {movieLists.map((item, index) => {
+        return <><h1 className="streamingProvider">{item}</h1><List pages={index + 1} /></>
+      })}
       <Footer />
     </div>
   );
