@@ -8,4 +8,36 @@
   text-align: center;
   justify-content: center;
   align-items: center;
+
+  .container {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .github {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    margin-bottom: 10px;
+
+    span {
+      margin-left: 5px;
+    }
+  }
+}
+
+.clickable {
+  color: black; 
+
+  &:hover {
+    height: 26px;
+    width: 26px;
+    color: red;
+
+  }
 }
