@@ -1,7 +1,7 @@
 {
   "name": "Seudeo",
   "version": "1.0.0",
-  "description": "Movie recommendation web application which suggests movies based on the user's preferences. ",
+  "description": "Website that recommends movies based on the user's movie preferences. ",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -24,6 +24,6 @@
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
     "mongodb": "^4.12.1",
-    "mongoose": "^6.7.3"
+    "mongoose": "^6.7.5"
   }
 }
