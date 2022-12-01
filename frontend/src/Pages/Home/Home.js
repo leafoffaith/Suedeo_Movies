@@ -8,13 +8,13 @@ const Home = () => {
     <div className="home">
       <Navbar />
       <h1 className="streamingProvider">Netflix</h1>
-      <List />
+      <List pages="2"/>
       <h1 className="streamingProvider">Amazon Prime</h1>
-      <List />
+      <List pages="3"/>
       <h1 className="streamingProvider">Disney+</h1>
-      <List />
+      <List pages="4"/>
       <h1 className="streamingProvider">Hulu</h1>
-      <List />
+      <List pages="5"/>
       <Footer />
     </div>
   );
