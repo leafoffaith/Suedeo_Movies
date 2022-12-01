@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/reeceawalsh/movie-recommendation-app.git"
+    "url": "git+https://github.com/reeceawalsh/suedeo_movies.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/reeceawalsh/movie-recommendation-app/issues"
+    "url": "https://github.com/reeceawalsh/seudeo_movies/issues"
   },
-  "homepage": "https://github.com/reeceawalsh/movie-recommendation-app#readme",
+  "homepage": "https://reeceawalsh.github.io/Suedeo_Movies/",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
