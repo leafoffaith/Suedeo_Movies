@@ -1,10 +1,13 @@
 import "./navbar.scss";
-import SettingsIcon from '@mui/icons-material/Settings';
-import SearchIcon from '@mui/icons-material/Search';
+import SettingsIcon from "@mui/icons-material/Settings";
+import SearchIcon from "@mui/icons-material/Search";
 import { IconButton, InputAdornment, TextField } from "@mui/material";
 import { textAlign } from "@mui/system";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 const Navbar = () => {
+  const { isLoggedIn, user } = useContext(AuthContext);
   return (
     <div className="navbar">
       <div className="navContainer">
@@ -14,27 +17,36 @@ const Navbar = () => {
             src={require("../../Logos/RectangleLogo.png")}
             alt="Suedeo Logo"
           />
-          <span className="navBarLink" id="home-link">Home</span>
-          <span className="navBarLink" id="series-link">Series</span>
-          <span className="navBarLink" id="movies-link">Movies</span>
-          <span className="navBarLink" id="watch-list-link">Watch List</span>
+          <span className="navBarLink" id="home-link">
+            Home
+          </span>
+          <span className="navBarLink" id="series-link">
+            Series
+          </span>
+          <span className="navBarLink" id="movies-link">
+            Movies
+          </span>
+          <span className="navBarLink" id="watch-list-link">
+            Watch List
+          </span>
         </div>
         <div className="navRight">
-          <TextField id="search"
+          <TextField
+            id="search"
             label="Search"
             size="small"
             InputProps={{
               endAdornment: (
                 <InputAdornment>
                   <IconButton>
-                    <SearchIcon className="icon"/>
+                    <SearchIcon className="icon" />
                   </IconButton>
                 </InputAdornment>
-              )
+              ),
             }}
-            />
+          />
           <SettingsIcon className="icon" />
-          <span id="userName">UserName</span>
+          <span id="userName">{user && user["name"]}</span>
           <div className="icon" />
           <img
             id="profile-img"

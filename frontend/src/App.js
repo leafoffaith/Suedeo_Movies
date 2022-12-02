@@ -3,11 +3,10 @@ import "./styles/reset.css";
 import "./styles/App.css";
 import "./styles/scss/main.scss";
 import "./styles/scss/app.scss";
-import Login from "./Pages/Login/Login";
 import Home from "./Pages/Home/Home";
 import Settings from "./Pages/Settings/Settings";
 import { Route, Routes } from "react-router-dom";
-import LoginPage from "./Pages/LoginPage";
+import LoginPage from "./Pages/Login/LoginPage";
 import { AuthContext } from "./context/AuthContext";
 
 function App() {

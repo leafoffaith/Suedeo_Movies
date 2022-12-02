@@ -1,0 +1,20 @@
+.login_page__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  background-color: #181818;
+  min-height: 100vh;
+  color: white;
+}
+
+.already_logged_in {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding-top: 2rem;
+
+  p {
+    line-height: 2;
+  }
+}
