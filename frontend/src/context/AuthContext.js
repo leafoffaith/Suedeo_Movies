@@ -9,11 +9,16 @@ const initialAuthState = {
   isLoggedIn: false,
   loading: false,
   error: null,
-  userObject: null,
+  user: null,
 };
 
 export const AuthProvider = ({ children }) => {
-  const [state, setState] = useState(initialAuthState);
+  const user = JSON.parse(localStorage.getItem("user"));
+  const [state, setState] = useState({
+    ...initialAuthState,
+    user: user ? user : null,
+    isLoggedIn: user ? true : false,
+  });
   const navigate = useNavigate();
 
   const login = (email, password) => {
@@ -22,6 +27,7 @@ export const AuthProvider = ({ children }) => {
       .post(constants.loginEndpoint, { email, password })
       .then((res) => {
         setState({ ...state, isLoggedIn: true, userObject: res });
+        localStorage.setItem("user", JSON.stringify(res.data));
         navigate("/");
       })
       .catch((err) => {

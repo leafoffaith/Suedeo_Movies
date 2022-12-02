@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
 const Navbar = () => {
-  const { isLoggedIn, userObject } = useContext(AuthContext);
+  const { isLoggedIn, user } = useContext(AuthContext);
   return (
     <div className="navbar">
       <div className="navContainer">
@@ -46,7 +46,7 @@ const Navbar = () => {
             }}
           />
           <SettingsIcon className="icon" />
-          <span id="userName">{isLoggedIn && userObject["name"]}</span>
+          <span id="userName">{user && user["name"]}</span>
           <div className="icon" />
           <img
             id="profile-img"
