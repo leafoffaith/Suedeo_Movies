@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }) => {
     axios
       .post(constants.loginEndpoint, { email, password })
       .then((res) => {
-        setState({ ...state, isLoggedIn: true, userObject: res });
+        setState({ ...state, isLoggedIn: true, userObject: res.data });
         localStorage.setItem("user", JSON.stringify(res.data));
         navigate("/");
       })
@@ -39,8 +39,16 @@ export const AuthProvider = ({ children }) => {
       });
   };
   const signup = (email, password, name) => {};
+
+  const logout = () => {
+    if (!state.isLoggedIn) {
+      return;
+    }
+    setState({ ...state, isLoggedIn: false, user: null });
+    localStorage.removeItem("user");
+  };
   return (
-    <AuthContext.Provider value={{ ...state, login, signup }}>
+    <AuthContext.Provider value={{ ...state, login, signup, logout }}>
       {children}
     </AuthContext.Provider>
   );

@@ -5,9 +5,11 @@ import { IconButton, InputAdornment, TextField } from "@mui/material";
 import { textAlign } from "@mui/system";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { isLoggedIn, user } = useContext(AuthContext);
+
   return (
     <div className="navbar">
       <div className="navContainer">
@@ -46,7 +48,9 @@ const Navbar = () => {
             }}
           />
           <SettingsIcon className="icon" />
-          <span id="userName">{user && user["name"]}</span>
+          <Link to="/logout" id="userName">
+            {user && user["name"] + " (Logout)"}
+          </Link>
           <div className="icon" />
           <img
             id="profile-img"
