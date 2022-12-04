@@ -3,7 +3,6 @@ import tmdbAPI from "../../api/tmdb"
 import axios from "axios"
 import "./list.scss";
 import { useEffect, useState} from "react"
-import tmdb from "../../api/tmdb";
 
 export default function List(pages) {
   const [movies, setMovies] = useState([])
@@ -16,7 +15,8 @@ export default function List(pages) {
     }).catch((err)=>{
       console.log(err)
     })
-  },[])
+  },
+  [])
   return (
     <div className="list">
       <div className="wrapper">
