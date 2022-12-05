@@ -49,7 +49,7 @@ const Navbar = () => {
           />
           <SettingsIcon className="icon" />
           <Link to="/logout" id="userName">
-            {user && user["name"] + " (Logout)"}
+            {isLoggedIn && user["name"] + " (Logout)"}
           </Link>
           <div className="icon" />
           <img
