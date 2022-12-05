@@ -6,6 +6,60 @@ import StarIcon from "@mui/icons-material/Star";
 import StarHalfIcon from "@mui/icons-material/StarHalf";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
 import Star from "@mui/icons-material/Star";
+import axios from "axios";
+
+// Retrieve the genre from api and add it to this list of genres
+let genres = [];
+
+axios
+  .get(
+    "https://api.themoviedb.org/3/genre/movie/list?api_key=dbe4608d19182e24de51d5d4e342e8df&language=en-GB"
+  )
+  .then((response) => {
+    let temp = response.data.genres;
+    for (let i = 0; i < temp.length; i++) {
+      let genre = [temp[i].id, temp[i].name];
+      genres.push(genre);
+    }
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+// Set the genre of the movie.
+const setGenre = (genre_ids) => {
+  let genre = "";
+  // Get genre
+  for (let i = 0; i < genre_ids.length; i++) {
+    for (let j = 0; j < genres.length; j++) {
+      if (genres[j][0] == genre_ids[i]) {
+        if (i < genre_ids.length - 1) {
+          genre += genres[j][1] + ", ";
+        } else {
+          genre += genres[j][1] + ".";
+        }
+      }
+    }
+  }
+  return genre;
+};
+
+// Get the service provider
+const setProvider = (id) => {
+  axios
+    .get(
+      `https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=dbe4608d19182e24de51d5d4e342e8df`
+    )
+    .then((response) => {
+      let rentPath = response.data.results.GB.flatrate;
+      for (let i = 0; i < rentPath.length; i++) {
+        return rentPath[i].provider_name;
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 
 // Retrieves the correct path for the poster image
 const getPosterURL = (poster_path) => {
@@ -50,6 +104,7 @@ const starRating = (vote_average) => {
 
 export default function MovieItem({
   index,
+  id,
   backdrop_path,
   poster_path,
   title,
@@ -57,9 +112,10 @@ export default function MovieItem({
   overview,
   genre_ids,
   vote_average,
-  genres,
+  provider,
 }) {
   const [isHovered, setIsHovered] = useState(false);
+
   return (
     <div
       className="movieItem"
@@ -82,7 +138,8 @@ export default function MovieItem({
               <div id="desc">
                 <p>{description(overview)}</p>
               </div>
-              <div id="genre">Genre</div>
+              <div id="provider">{provider}</div>
+              <div id="genre">{setGenre(genre_ids)}</div>
               <div id="rating">
                 <ThumbDownIcon
                   className="rating"
