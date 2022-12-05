@@ -11,12 +11,11 @@ import axios from "axios";
 // Retrieve the genre from api and add it to this list of genres
 let genres = []; 
 
-axios.get("https://api.themoviedb.org/3/genre/movie/list?api_key=dbe4608d19182e24de51d5d4e342e8df&language=en-US").then((response) => {
+axios.get("https://api.themoviedb.org/3/genre/movie/list?api_key=dbe4608d19182e24de51d5d4e342e8df&language=en-GB").then((response) => {
   let temp = response.data.genres
   for (let i = 0; i < temp.length; i++) {
     let genre = [temp[i].id, temp[i].name]
     genres.push(genre);
-    console.log(genre)
   }
 }).catch((err) => {
   console.log(err)
@@ -39,6 +38,21 @@ const setGenre = (genre_ids) => {
   }
   return genre
 }
+
+// Get the service provider
+const setProvider = (id) => {
+  let provider = ""
+  axios.get(`https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=dbe4608d19182e24de51d5d4e342e8df`).then((response) => {
+    let rentPath = response.data.results.GB.flatrate; 
+    provider = rentPath[0].provider_name 
+    console.log(provider)
+    return provider; 
+  }).catch((err) => {
+    console.log(err)
+  })
+  
+}
+
 
 // Retrieves the correct path for the poster image
 const getPosterURL = (poster_path) => {
@@ -81,7 +95,7 @@ const starRating = (vote_average) => {
   return stars
 }
 
-export default function MovieItem({ index, backdrop_path, poster_path, title, release_date, overview, genre_ids, vote_average}) {
+export default function MovieItem({ index, id, backdrop_path, poster_path, title, release_date, overview, genre_ids, vote_average}) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -114,6 +128,7 @@ export default function MovieItem({ index, backdrop_path, poster_path, title, re
             <div id="desc">
             <p>{description(overview)}</p>
             </div>
+            <div id="provider">{setProvider(id)}</div>
             <div id="genre">{setGenre(genre_ids)}</div>
             <div id="rating">
             <ThumbDownIcon className="rating" id="thumb-down" size="small"/>
