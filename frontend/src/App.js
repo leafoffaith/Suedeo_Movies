@@ -9,6 +9,7 @@ import { Route, Routes } from "react-router-dom";
 import LoginPage from "./Pages/Login/LoginPage";
 import { AuthContext } from "./context/AuthContext";
 import Logout from "./Pages/Logout/Logout";
+import SignupPage from "./Pages/Signup/SignupPage";
 
 function App() {
   const [data, setData] = useState(null);
@@ -21,6 +22,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/logout" element={<Logout />} />
+      <Route path="/signup" element={<SignupPage />} />
     </Routes>
   );
 }

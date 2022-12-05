@@ -35,6 +35,7 @@ export const AuthProvider = ({ children }) => {
       .post(constants.loginEndpoint, { email, password })
       .then((res) => {
         localStorage.setItem("user", JSON.stringify(res.data));
+        localStorage.setItem("token", JSON.stringify(res.data.token));
         setState({ ...state, isLoggedIn: true, user: res.data });
       })
       .catch((err) => {
