@@ -1,0 +1,18 @@
+@use "../../styles/scss/variables" as v;
+
+.signup__container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+  margin: 3rem auto;
+  background-color: gray;
+  padding: 2rem;
+  border-radius: v.$rounded-sm;
+
+  .signup_btn {
+    width: max-content;
+    border: none;
+    font-size: 1rem;
+  }
+}

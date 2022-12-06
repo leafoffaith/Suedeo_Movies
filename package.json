@@ -27,6 +27,7 @@
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.10.16",
     "@mui/material": "^5.10.16",
+    "classnames": "^2.3.2",
     "colors": "^1.4.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",

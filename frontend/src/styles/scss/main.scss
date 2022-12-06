@@ -39,20 +39,22 @@ label {
   border: none;
 }
 
- .btn {
+.btn {
   color: black;
   padding: 0.4rem 1.6rem;
   border-radius: 1.2rem;
   cursor: pointer;
   font-size: 0.6rem;
   letter-spacing: 2px;
-  border: 1px black solid; 
- }
+  border: 1px black solid;
+}
 
- .btn:hover, .btn:focus, .btn:active {
-  border: black 2px solid; 
+.btn:hover,
+.btn:focus,
+.btn:active {
+  border: black 2px solid;
   font-size: 1.05rem;
- }
+}
 
 .btn-lg {
   font-size: 1rem;
@@ -66,4 +68,8 @@ label {
 .cta-btn {
   font-weight: 600;
   font-size: 1.4rem;
+}
+
+.w-25 {
+  width: 25%;
 }
