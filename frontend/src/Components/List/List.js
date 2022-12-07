@@ -5,11 +5,7 @@ import { useEffect, useState} from "react"
 
 export default function List(pages) {
   const [movies, setMovies] = useState([])
-<<<<<<< HEAD
   let pageNumber = pages.pages + 1
-=======
-  let pageNumber = pages.page
->>>>>>> 1f4a640 (Frontend working now)
 
   useEffect(() => {
     // fetch movie

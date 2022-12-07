@@ -98,7 +98,6 @@ const starRating = (vote_average) => {
   return stars;
 };
 
-export default function MovieItem({ index, backdrop_path, poster_path, title, release_date, overview, genre_ids, vote_average}) {
 export default function MovieItem({ index, id, backdrop_path, poster_path, title, release_date, overview, genre_ids, vote_average}) {
   const [isHovered, setIsHovered] = useState(false);
 
