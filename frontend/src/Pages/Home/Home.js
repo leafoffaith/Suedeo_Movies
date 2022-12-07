@@ -10,7 +10,7 @@ const Home = () => {
     <div className="home">
       <Navbar />
       {movieLists.map((item, index) => {
-        return <div key = {index}><h1 className="streamingProvider">{item}</h1><List pages={index} /></div>
+        return <><h1 className="streamingProvider">{item}</h1><List pages={index} /></>
       })}
       <Footer />
     </div>

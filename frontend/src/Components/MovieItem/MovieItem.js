@@ -10,6 +10,37 @@ import axios from "axios";
 
 // Retrieve the genre from api and add it to this list of genres
 let genres = [];
+let providers = []
+
+// Get the service provider
+const getProviders = (id) => {
+  axios.get(`https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=dbe4608d19182e24de51d5d4e342e8df`).then((response) => {
+    if (response.data.results.hasOwnProperty('GB') && response.data.results.GB.hasOwnProperty('flatrate')) {
+      for (let i = 0; i < response.data.results.GB.flatrate.length; i++) {
+        let provider = response.data.results.GB.flatrate[i].provider_name
+        providers.push([id, provider])
+      }
+    }
+  }).catch((err) => {
+    console.log(err)
+  })
+  setProviders()
+}
+
+const setProviders = (id) => {
+  let index = -1
+    for (let i = 0; i < providers.length; i++) {
+      if (providers[i][0] == id) {
+        index = i
+      }
+    }
+if (index != -1) {
+  return providers[index][1] 
+} else {
+    return "No streaming provider found."
+  }
+}
+
 
 axios
   .get(
@@ -43,19 +74,6 @@ const setGenre = (genre_ids) => {
   }
   return genre
 }
-
-// Get the service provider
-const setProvider = (id) => {
-  axios.get(`https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=dbe4608d19182e24de51d5d4e342e8df`).then((response) => {
-    let rentPath = response.data.results.GB.flatrate; 
-    for (let i = 0; i < rentPath.length; i++) {
-      return rentPath[i].provider_name 
-    }
-  }).catch((err) => {
-    console.log(err)
-  })
-}
-
 
 // Retrieves the correct path for the poster image
 const getPosterURL = (poster_path) => {
@@ -100,7 +118,7 @@ const starRating = (vote_average) => {
 
 export default function MovieItem({ index, id, backdrop_path, poster_path, title, release_date, overview, genre_ids, vote_average}) {
   const [isHovered, setIsHovered] = useState(false);
-
+  getProviders(id)
   return (
     <div
       className="movieItem"
@@ -123,7 +141,7 @@ export default function MovieItem({ index, id, backdrop_path, poster_path, title
             <div id="desc">
             <p>{description(overview)}</p>
             </div>
-            <div id="provider"></div>
+            <div id="provider">{setProviders(id)}</div>
             <div id="genre">{setGenre(genre_ids)}</div>
             <div id="rating">
             <ThumbDownIcon className="rating" id="thumb-down" size="small"/>
