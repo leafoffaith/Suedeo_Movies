@@ -100,15 +100,24 @@ const description = (title, overview) => {
     length = 160
   }
   else if (title.length > 25) {
-    length = 120
+    length = 100
   }
 
+  // Adds ... to the end. Checks to make sure if the cut off is at a space, or the end of a sentence. 
   if (overview.length > length) {
-    return overview.slice(0, length) + "...";
+    if (overview.slice(length - 1, length) == '.') {
+      return overview.slice(0, length - 1) + "..."
+    } 
+    else if (overview.slice(length - 1, length) == ' ') {
+      return overview.slice(0, length - 1) + "..."
+    }
+    else {
+    return overview.slice(0, length) + "..."
+    }
   } else {
     return overview;
   }
-};
+}
 
 // Checks to see how well rated the movie is out of 10 then translates it into stars.
 const starRating = (vote_average) => {
