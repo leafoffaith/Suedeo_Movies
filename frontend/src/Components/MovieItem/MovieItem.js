@@ -91,8 +91,18 @@ const getBackDropURL = (backdrop_path) => {
 };
 
 // Ensures the description is only 150 characters long.
-const description = (overview) => {
-  const length = 180; // Change length of text
+const description = (title, overview) => {
+  let length = 180; // Change length of text
+  if (title.length < 12) {
+    length = 180
+  }
+  else if (title.length > 16 && title.length < 25) {
+    length = 160
+  }
+  else if (title.length > 25) {
+    length = 120
+  }
+
   if (overview.length > length) {
     return overview.slice(0, length) + "...";
   } else {
@@ -144,13 +154,15 @@ export default function MovieItem({ index, id, backdrop_path, poster_path, title
               <span id="year">{release_date}</span>
             </div>
             <div id="desc">
-            <p>{description(overview)}</p>
+            <p>{description(title, overview)}</p>
             </div>
             {/* <div id="provider">{setProviders(id)}</div> */}
-            <div id="genre">{setGenre(genre_ids)}</div>
+            <div id="genre">
+            <p id="genre-text">{setGenre(genre_ids)}</p>
+            </div>
             <div id="rating">
-            <ThumbDownIcon className="rating" id="thumb-down" size="small"/>
-            <ThumbUpIcon className="rating" id="thumb-up" size="small"/>
+            <ThumbDownIcon className="thumb" id="thumb-down" size="small"/>
+            <ThumbUpIcon className="thumb" id="thumb-up" size="small"/>
           </div>
           <div id="movie-buttons">
             <button className="button">Watch Later</button>
