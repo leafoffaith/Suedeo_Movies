@@ -5,12 +5,11 @@ import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 import StarIcon from "@mui/icons-material/Star";
 import StarHalfIcon from "@mui/icons-material/StarHalf";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
-import Star from "@mui/icons-material/Star";
+// import Star from "@mui/icons-material/Star";
 import axios from "axios";
 
 // Retrieve the genre from api and add it to this list of genres
 let genres = [];
-let providers = []
 
 // Get the service provider
 // const getProviders = (id) => {
@@ -68,7 +67,7 @@ const setGenre = (genre_ids) => {
   // Get genre
   for (let i = 0; i < genre_ids.length; i++) {
     for (let j = 0; j < genres.length; j++) {
-      if (genres[j][0] == genre_ids[i]) {
+      if (genres[j][0] === genre_ids[i]) {
         if (i < genre_ids.length - 1) {
           genre += genres[j][1] + ", ";
         } else {
@@ -105,10 +104,10 @@ const description = (title, overview) => {
 
   // Adds ... to the end. Checks to make sure if the cut off is at a space, or the end of a sentence. 
   if (overview.length > length) {
-    if (overview.slice(length - 1, length) == '.') {
+    if (overview.slice(length - 1, length) === '.') {
       return overview.slice(0, length - 1) + "..."
-    } 
-    else if (overview.slice(length - 1, length) == ' ') {
+    }
+    else if (overview.slice(length - 1, length) === ' ') {
       return overview.slice(0, length - 1) + "..."
     }
     else {
@@ -134,7 +133,7 @@ const starRating = (vote_average) => {
   for (let i = 0; i + 0.9 < outOfFive; i++) {
     stars[i] = <StarIcon className="star" />;
   }
-  if (decimalPart != 0 && decimalPart >= 5) {
+  if (decimalPart !== 0 && decimalPart >= 5) {
     stars[outOfFive] = <StarHalfIcon className="star" />;
   }
   return stars;
@@ -174,8 +173,8 @@ export default function MovieItem({ index, id, backdrop_path, poster_path, title
             <ThumbUpIcon className="thumb" id="thumb-up" size="small"/>
           </div>
           <div id="movie-buttons">
-            <button className="button">Watch Later</button>
-            <button className="button">Add to Favourites</button>
+            <button id="more-info-btn" className="button">More Information</button>
+            <button id="favourites-btn" className="button">Add to Favourites</button>
 
           </div>
           </div>

@@ -86,11 +86,25 @@
         margin-left: 140px;
       }
 
+      #thumb-up:hover {
+        color: blue; 
+      }
+
+      #thumb-down:hover {
+        color: red; 
+      }
+
+      #thumb-down:hover, #thumb-up:hover {
+        width: 21px;
+        height: 21px;
+      }
+
       .thumb {
         position: relative; 
         width: 20px;
         height: 20px;
       }
+
 
       #firstTitle {
         display: none; 
@@ -116,10 +130,10 @@
       }
 
       .button:hover {
-        cursor: grab;
+        cursor:auto;
         background-color: black;
         color: white;
-        padding: 2px;
+        padding: 1px;
       }
     }
 
