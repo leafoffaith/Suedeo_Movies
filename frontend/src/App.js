@@ -10,6 +10,7 @@ import LoginPage from "./Pages/Login/LoginPage";
 import { AuthContext } from "./context/AuthContext";
 import Logout from "./Pages/Logout/Logout";
 import SignupPage from "./Pages/Signup/SignupPage";
+import MovieChoice from "./Pages/MovieChoice/MovieChoice";
 
 function App() {
   const [data, setData] = useState(null);
@@ -23,6 +24,7 @@ function App() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/logout" element={<Logout />} />
       <Route path="/signup" element={<SignupPage />} />
+      <Route path="/moviechoice" element={<MovieChoice />} />
     </Routes>
   );
 }

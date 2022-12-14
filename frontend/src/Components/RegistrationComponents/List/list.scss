@@ -1,0 +1,36 @@
+.list {
+  position: relative;
+  width: 100%;
+  max-width: 95%;
+  margin-left: 4em;
+  // overflow: hidden;
+  overflow: scroll; 
+
+  .listTitle {
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 50px;
+  }
+
+  .wrapper {
+    position: relative;
+
+      &.left {
+        left: 0;
+      }
+
+      &.right {
+        right: 0;
+      }
+    }
+    .container {
+      display: flex;
+      flex-direction: row;
+      margin-left: 50px;
+      margin-right: 50px;
+      width: max-content;
+      transform: translateX(0px);
+      transition: all 1s ease;
+    }
+  }
