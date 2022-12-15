@@ -1,16 +1,26 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import "./Signup.scss";
 import useInput from "../../hooks/useInput";
 import TextInput from "../Commons/TextInput/TextInput";
 import { ValidateEmail } from "../../utils";
+import { AuthContext } from "../../context/AuthContext";
+import { CircularProgress } from "@mui/material";
+import ErrorMessage from "../Commons/ErrorMessage/ErrorMessage";
 
 export default function Signup() {
-  const [name, nameOnChange] = useInput("");
-  const [email, emailOnChange] = useInput("");
-  const [password, passwordOnChange] = useInput("");
+  const [name, nameOnChange] = useInput("john");
+  const [email, emailOnChange] = useInput("john@gmail.com");
+  const [password, passwordOnChange] = useInput("john");
+  const { signup, loading, error, resetError } = useContext(AuthContext);
+
+  useEffect(() => {
+    console.log("ERROR CHANGED!", error);
+  }, [error]);
 
   const onFormSubmit = (e) => {
     e.preventDefault();
+    resetError();
+    signup(email, name, password);
     ValidateEmail();
   };
 
@@ -33,7 +43,11 @@ export default function Signup() {
         onChange={passwordOnChange}
         type="password"
       />
-      <button className="btn btn-xl signup_btn">Signup</button>
+      <div>
+        <button className="btn btn-xl signup_btn">Signup</button>
+        {loading && <CircularProgress />}
+      </div>
+      {error && <ErrorMessage message={error} />}
     </form>
   );
 }
