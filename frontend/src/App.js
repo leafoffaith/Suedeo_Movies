@@ -16,7 +16,7 @@ function App() {
   const [data, setData] = useState(null);
   const [user, setuser] = useState(null);
   const userData = useContext(AuthContext);
-  console.log(userData);
+  console.log("---------------------------");
 
   return (
     <Routes>

@@ -5,11 +5,11 @@ import { useNavigate } from "react-router-dom";
 
 export const AuthContext = React.createContext(null);
 
-console.log("Auth context file!");
+console.log("Resetting state!");
 const initialAuthState = {
   isLoggedIn: false,
   loading: false,
-  error: null,
+  error: "RESET",
   user: null,
 };
 
@@ -46,7 +46,27 @@ export const AuthProvider = ({ children }) => {
         setState({ ...state, loading: false });
       });
   };
-  const signup = (email, password, name) => {};
+
+  const signup = (email, password, name) => {
+    const payload = { name, email, password };
+    setState({ ...state, loading: true });
+    axios
+      .post(constants.signupEndpoint, payload)
+      .then((res) => {
+        const data = res.data;
+        localStorage.setItem("user", JSON.stringify(data));
+        localStorage.setItem("token", JSON.stringify(data.token));
+        setState({ ...state, isLoggedIn: true, user: data });
+      })
+      .catch((err) => {
+        const msg = err.response.data.message;
+        console.log("Signup request failed", msg);
+        setState({ ...state, error: msg });
+      });
+    // .finally(() => {
+    //   setState({ ...state, loading: false });
+    // });
+  };
 
   const logout = () => {
     if (!state.isLoggedIn) {
@@ -55,8 +75,14 @@ export const AuthProvider = ({ children }) => {
     setState({ ...state, isLoggedIn: false, user: null });
     localStorage.removeItem("user");
   };
+
+  const resetError = () => {
+    setState({ ...state, error: null });
+  };
   return (
-    <AuthContext.Provider value={{ ...state, login, signup, logout }}>
+    <AuthContext.Provider
+      value={{ ...state, login, signup, logout, resetError }}
+    >
       {children}
     </AuthContext.Provider>
   );
