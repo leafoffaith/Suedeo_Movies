@@ -60,26 +60,51 @@
 
       #provider {
         font-size: 14px;
+        margin-bottom: 5px;
         color: rgb(98, 98, 98);
       }
 
       #genre {
+        position: absolute; 
         font-size: 14px;
         color: rgb(98, 98, 98);
+        bottom: 110px;
+        max-width: 180px;
+      }
+
+      #genre-text {
+        position: relative;
       }
 
       #rating {
+        position: absolute; 
         z-index: 1;
-        display: flex;
-        justify-content: space-between;
-        justify-items: flex-end;
-        margin: 5px;
+        bottom: 80px;
       }
 
-      .rating {
+      #thumb-up {
+        margin-left: 140px;
+      }
+
+      #thumb-up:hover {
+        color: blue; 
+      }
+
+      #thumb-down:hover {
+        color: red; 
+      }
+
+      #thumb-down:hover, #thumb-up:hover {
+        width: 21px;
+        height: 21px;
+      }
+
+      .thumb {
+        position: relative; 
         width: 20px;
         height: 20px;
       }
+
 
       #firstTitle {
         display: none; 
@@ -90,20 +115,25 @@
       }
 
       #movie-buttons {
+        position: absolute;
         display: flex;
         flex-direction: column; 
+        bottom: 30px;
       }
 
       #movie-buttons button {
         z-index: 1;
+        width: 190px;
+        height: 20px;
+        border-radius: 15px;
         margin-top: 5px;
       }
 
       .button:hover {
-        cursor: grab;
+        cursor:auto;
         background-color: black;
         color: white;
-        padding: 2px;
+        padding: 1px;
       }
     }
 

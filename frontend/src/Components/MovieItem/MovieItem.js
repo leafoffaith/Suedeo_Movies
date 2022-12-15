@@ -5,11 +5,46 @@ import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 import StarIcon from "@mui/icons-material/Star";
 import StarHalfIcon from "@mui/icons-material/StarHalf";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
-import Star from "@mui/icons-material/Star";
+// import Star from "@mui/icons-material/Star";
 import axios from "axios";
 
 // Retrieve the genre from api and add it to this list of genres
 let genres = [];
+
+// Get the service provider
+// const getProviders = (id) => {
+//   axios.get(`https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=dbe4608d19182e24de51d5d4e342e8df`).then((response) => {
+//     if (response.data.results.hasOwnProperty('GB') && response.data.results.GB.hasOwnProperty('flatrate')) {
+//       for (let i = 0; i < response.data.results.GB.flatrate.length; i++) {
+//         let provider = response.data.results.GB.flatrate[i].provider_name
+//         providers.push([id, provider])
+//       }
+//     }
+//   }).catch((err) => {
+//     console.log(err)
+//   })
+//   setProviders()
+// }
+
+// const setProviders = (id) => {
+//   let index = -1
+//   let movieProviders = []
+//     for (let i = 0; i < providers.length; i++) {
+//       if (providers[i][0] == id) {
+//         console.log(providers[i][0] + " " + providers[i][1])
+//         index = i
+//         movieProviders.push(providers[i][1])
+//       }
+//     }
+// if (index != -1) {
+//   for (let i = 0; i < movieProviders.length; i++) {
+//     return movieProviders[0]
+//   }
+// } else {
+//     return "No streaming provider found."
+//   }
+// }
+
 
 axios
   .get(
@@ -32,7 +67,7 @@ const setGenre = (genre_ids) => {
   // Get genre
   for (let i = 0; i < genre_ids.length; i++) {
     for (let j = 0; j < genres.length; j++) {
-      if (genres[j][0] == genre_ids[i]) {
+      if (genres[j][0] === genre_ids[i]) {
         if (i < genre_ids.length - 1) {
           genre += genres[j][1] + ", ";
         } else {
@@ -41,25 +76,8 @@ const setGenre = (genre_ids) => {
       }
     }
   }
-  return genre;
-};
-
-// Get the service provider
-const setProvider = (id) => {
-  axios
-    .get(
-      `https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=dbe4608d19182e24de51d5d4e342e8df`
-    )
-    .then((response) => {
-      let rentPath = response.data.results.GB.flatrate;
-      for (let i = 0; i < rentPath.length; i++) {
-        return rentPath[i].provider_name;
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
+  return genre
+}
 
 // Retrieves the correct path for the poster image
 const getPosterURL = (poster_path) => {
@@ -72,14 +90,33 @@ const getBackDropURL = (backdrop_path) => {
 };
 
 // Ensures the description is only 150 characters long.
-const description = (overview) => {
-  const length = 180; // Change length of text
+const description = (title, overview) => {
+  let length = 180; // Change length of text
+  if (title.length < 12) {
+    length = 180
+  }
+  else if (title.length > 16 && title.length < 25) {
+    length = 160
+  }
+  else if (title.length > 25) {
+    length = 100
+  }
+
+  // Adds ... to the end. Checks to make sure if the cut off is at a space, or the end of a sentence. 
   if (overview.length > length) {
-    return overview.slice(0, length) + "...";
+    if (overview.slice(length - 1, length) === '.') {
+      return overview.slice(0, length - 1) + "..."
+    }
+    else if (overview.slice(length - 1, length) === ' ') {
+      return overview.slice(0, length - 1) + "..."
+    }
+    else {
+    return overview.slice(0, length) + "..."
+    }
   } else {
     return overview;
   }
-};
+}
 
 // Checks to see how well rated the movie is out of 10 then translates it into stars.
 const starRating = (vote_average) => {
@@ -96,26 +133,15 @@ const starRating = (vote_average) => {
   for (let i = 0; i + 0.9 < outOfFive; i++) {
     stars[i] = <StarIcon className="star" />;
   }
-  if (decimalPart != 0 && decimalPart >= 5) {
+  if (decimalPart !== 0 && decimalPart >= 5) {
     stars[outOfFive] = <StarHalfIcon className="star" />;
   }
   return stars;
 };
 
-export default function MovieItem({
-  index,
-  id,
-  backdrop_path,
-  poster_path,
-  title,
-  release_date,
-  overview,
-  genre_ids,
-  vote_average,
-  provider,
-}) {
+export default function MovieItem({ index, id, backdrop_path, poster_path, title, release_date, overview, genre_ids, vote_average}) {
   const [isHovered, setIsHovered] = useState(false);
-
+  // getProviders(id)
   return (
     <div
       className="movieItem"
@@ -133,26 +159,25 @@ export default function MovieItem({
               <div id="itemInfoTop">
                 {/* <span id="duration">{duration}</span>
               <span id="rating">{parentalRating}</span> */}
-                <span id="year">{release_date}</span>
-              </div>
-              <div id="desc">
-                <p>{description(overview)}</p>
-              </div>
-              <div id="provider">{provider}</div>
-              <div id="genre">{setGenre(genre_ids)}</div>
-              <div id="rating">
-                <ThumbDownIcon
-                  className="rating"
-                  id="thumb-down"
-                  size="small"
-                />
-                <ThumbUpIcon className="rating" id="thumb-up" size="small" />
-              </div>
-              <div id="movie-buttons">
-                <button className="button">Watch Later</button>
-                <button className="button">Add to Favourites</button>
-              </div>
+              <span id="year">{release_date}</span>
             </div>
+            <div id="desc">
+            <p>{description(title, overview)}</p>
+            </div>
+            {/* <div id="provider">{setProviders(id)}</div> */}
+            <div id="genre">
+            <p id="genre-text">{setGenre(genre_ids)}</p>
+            </div>
+            <div id="rating">
+            <ThumbDownIcon className="thumb" id="thumb-down" size="small"/>
+            <ThumbUpIcon className="thumb" id="thumb-up" size="small"/>
+          </div>
+          <div id="movie-buttons">
+            <button id="more-info-btn" className="button">More Information</button>
+            <button id="favourites-btn" className="button">Add to Favourites</button>
+
+          </div>
+          </div>
           </div>
         </>
       )}

@@ -1,0 +1,84 @@
+.navbar {
+  position: relative;
+  width: 100%;
+  color: rgb(0, 0, 0);
+  top: 0;
+  height: 4em;
+  background: rgba(246, 242, 83, 1) 50%; 
+  border-bottom: 2px solid black;
+
+  &.scrolled{
+    background-color: var(--main-color);
+  }
+}
+
+.navContainer {
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.navLeft {
+  display: flex;
+  align-items: center;
+
+  img {
+    height: 3.9em;
+    border-right: 2px solid black; 
+    margin-right: 50px;
+  }
+
+  span {
+    font-weight:500;
+    margin-right: 40px;
+    font-size: 1.2em;
+
+    cursor: pointer;
+  }
+
+  #home-link {
+    text-decoration: underline;
+  }
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+
+  .icon {
+    margin: 0px 15px;
+    cursor: pointer;
+  }
+
+  img {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
+  .profile {
+    .options {
+      display: none;
+      background-color: var(--main-color);
+      border-radius: 5px;
+    }
+
+    span {
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    &:hover {
+      .options {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+      }
+    }
+  }
+}
