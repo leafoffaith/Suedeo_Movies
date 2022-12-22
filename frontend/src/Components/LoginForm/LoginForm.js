@@ -53,9 +53,7 @@ export default function Login() {
             className="text-input"
           />
         </div>
-        <button onclick={() => {
-          navigate("./homepage")}}
-          className="btn btn-lg">Login</button>
+        <button className="btn btn-lg">Login</button>
         {loading && <span>Loading...</span>}
         <ErrorMessages messagesArray={errors} />
       </form>
