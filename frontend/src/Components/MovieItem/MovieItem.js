@@ -92,6 +92,7 @@ const getBackDropURL = (backdrop_path) => {
 // Ensures the description is only 150 characters long.
 const description = (title, overview) => {
   let length = 180; // Change length of text
+  try {
   if (title.length < 12) {
     length = 180
   }
@@ -100,6 +101,8 @@ const description = (title, overview) => {
   }
   else if (title.length > 25) {
     length = 100
+  }} catch (e) {
+    console.log(e)
   }
 
   // Adds ... to the end. Checks to make sure if the cut off is at a space, or the end of a sentence. 
@@ -139,7 +142,7 @@ const starRating = (vote_average) => {
   return stars;
 };
 
-export default function MovieItem({ index, id, backdrop_path, poster_path, title, release_date, overview, genre_ids, vote_average}) {
+export default function MovieItem({ index, id, backdrop_path, poster_path, title, name, release_date, overview, genre_ids, vote_average}) {
   const [isHovered, setIsHovered] = useState(false);
   // getProviders(id)
   return (
@@ -155,7 +158,7 @@ export default function MovieItem({ index, id, backdrop_path, poster_path, title
           <div id="backdrop-container">
             <img id="backdrop" src={getBackDropURL(backdrop_path)} alt="" />
             <div id="itemInfo">
-              <span id="title">{title}</span>
+              <span id="title">{title}{name}</span> 
               <div id="itemInfoTop">
                 {/* <span id="duration">{duration}</span>
               <span id="rating">{parentalRating}</span> */}

@@ -6,6 +6,18 @@
 }
 
 .streamingProvider {
+  margin-right: 2em;
+}
+
+.toggleBtn {
+  height: 40px;
+  width: 60px;
+  font-size: 1em;
+}
+
+#top {
+  display: flex;
+  flex-direction: row;
   margin-top: 1.3em;
   margin-left: 1.5em;
   margin-bottom: 0; 
