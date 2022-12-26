@@ -39,17 +39,17 @@ export default function List(info) {
   let provider = convertProvider(info.provider)
   let mediaType = "movie"
 
-  if (movie) {
-    mediaType = "movie"
-  } 
-  else {
-    mediaType = "tv"
-  }
+  // if (movie) {
+  //   mediaType = "movie"
+  // } 
+  // else {
+  //   mediaType = "tv"
+  // }
 
   useEffect(() => {
     // Can increase i to increase the amount of pages. 
       for (let i = 1; i < 5; i++) {
-        axios.get(`https://api.themoviedb.org/3/discover/${mediaType}?api_key=dbe4608d19182e24de51d5d4e342e8df&language=en-US&region=GB&sort_by=popularity.desc&include_adult=false&include_video=false&page=${i}&with_watch_providers=${provider}&watch_region=GB&with_watch_monetization_types=flatrate`).then((response) => {
+        axios.get(`https://api.themoviedb.org/3/discover/tv?api_key=dbe4608d19182e24de51d5d4e342e8df&language=en-US&region=GB&sort_by=popularity.desc&include_adult=false&include_video=false&page=${i}&with_watch_providers=${provider}&watch_region=GB&with_watch_monetization_types=flatrate`).then((response) => {
           setMovies(prev => [...prev, ...response.data.results])
       }).catch((err) => {
         console.log(err)
@@ -62,7 +62,7 @@ export default function List(info) {
       <button 
       type="button"
       className="toggleBtn" 
-      onClick={setMovie(prevState => !prevState)}
+      // onClick={setMovie(prevState => !prevState)}
       >
       {mediaType}
       </button>
