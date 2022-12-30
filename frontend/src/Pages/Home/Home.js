@@ -11,14 +11,13 @@ const movieLists = ['Netflix', 'Disney Plus', 'Sky', 'Amazon Prime Video'] // AP
 const Home = () => {
   return (
     <div className="home">
-
       <Navbar />
       {movieLists.map(item => {
         return <>
         <div id="top">
         <h1 className="streamingProvider">{item}</h1>
         </div>
-        <List provider={item}/>
+        <List key={item} provider={item}/>
         </>
       })}
       <Footer />

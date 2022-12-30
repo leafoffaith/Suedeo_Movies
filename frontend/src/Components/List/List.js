@@ -33,38 +33,52 @@ const convertProvider = (provider) => {
       return -1
   }
 }
-export default function List(info) {
+export default function List(props) {
   const [movies, setMovies] = useState([])
-  const [movie, setMovie] = useState(true)
-  let provider = convertProvider(info.provider)
-  let mediaType = "movie"
+  const [mediaType, setMediaType] = useState("movie")
+  let provider = convertProvider(props.provider)
 
-  // if (movie) {
-  //   mediaType = "movie"
-  // } 
-  // else {
-  //   mediaType = "tv"
-  // }
+  const changeMediaType = () => {
+    setMediaType(prevState => {
+      return prevState == "movie" ? "tv" : "movie"
+    })
+    changeMedia()
+  }
+
+  const changeMedia = () => {
+      console.log("changing media")
+      axios.get(`https://api.themoviedb.org/3/discover/${mediaType}?api_key=dbe4608d19182e24de51d5d4e342e8df&language=en-US&region=GB&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_providers=${provider}&watch_region=GB&with_watch_monetization_types=flatrate`).then((response) => {
+        setMovies([...response.data.results])
+    }).catch((err) => {
+      console.log(err)
+    })
+  }
+
+  const loadPages = () => {
+    console.log("loading pages")
+    for (let i = 2; i < 6; i++) {
+      axios.get(`https://api.themoviedb.org/3/discover/${mediaType}?api_key=dbe4608d19182e24de51d5d4e342e8df&language=en-US&region=GB&sort_by=popularity.desc&include_adult=false&include_video=false&page=${i}&with_watch_providers=${provider}&watch_region=GB&with_watch_monetization_types=flatrate`).then((response) => {
+        setMovies(prev => [...prev, ...response.data.results])
+    }).catch((err) => {
+      console.log(err)
+    })
+    }
+  }
 
   useEffect(() => {
-    // Can increase i to increase the amount of pages. 
-      for (let i = 1; i < 5; i++) {
-        axios.get(`https://api.themoviedb.org/3/discover/tv?api_key=dbe4608d19182e24de51d5d4e342e8df&language=en-US&region=GB&sort_by=popularity.desc&include_adult=false&include_video=false&page=${i}&with_watch_providers=${provider}&watch_region=GB&with_watch_monetization_types=flatrate`).then((response) => {
-          setMovies(prev => [...prev, ...response.data.results])
-      }).catch((err) => {
-        console.log(err)
-      })
-      }
-    },
-  [provider, mediaType])
+    changeMediaType()
+    loadPages()
+  },
+  [provider])
+
   return (
     <div className="list">
       <button 
       type="button"
       className="toggleBtn" 
-      // onClick={setMovie(prevState => !prevState)}
+      onClick={changeMediaType}
       >
-      {mediaType}
+      Change
       </button>
       <div className="wrapper">
        <div className="container">
