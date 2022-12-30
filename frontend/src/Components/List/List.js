@@ -43,10 +43,10 @@ export default function List(props) {
       return prevState == "movie" ? "tv" : "movie"
     })
     changeMedia()
+    loadPages()
   }
 
   const changeMedia = () => {
-      console.log("changing media")
       axios.get(`https://api.themoviedb.org/3/discover/${mediaType}?api_key=dbe4608d19182e24de51d5d4e342e8df&language=en-US&region=GB&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_providers=${provider}&watch_region=GB&with_watch_monetization_types=flatrate`).then((response) => {
         setMovies([...response.data.results])
     }).catch((err) => {
@@ -54,9 +54,10 @@ export default function List(props) {
     })
   }
 
+  let changeTo = mediaType == "movie" ? "Series" : "Movies"
+
   const loadPages = () => {
-    console.log("loading pages")
-    for (let i = 2; i < 6; i++) {
+    for (let i = 2; i < 10; i++) {
       axios.get(`https://api.themoviedb.org/3/discover/${mediaType}?api_key=dbe4608d19182e24de51d5d4e342e8df&language=en-US&region=GB&sort_by=popularity.desc&include_adult=false&include_video=false&page=${i}&with_watch_providers=${provider}&watch_region=GB&with_watch_monetization_types=flatrate`).then((response) => {
         setMovies(prev => [...prev, ...response.data.results])
     }).catch((err) => {
@@ -67,7 +68,6 @@ export default function List(props) {
 
   useEffect(() => {
     changeMediaType()
-    loadPages()
   },
   [provider])
 
@@ -78,7 +78,7 @@ export default function List(props) {
       className="toggleBtn" 
       onClick={changeMediaType}
       >
-      Change
+      {changeTo}
       </button>
       <div className="wrapper">
        <div className="container">
