@@ -54,7 +54,7 @@ export default function List(props) {
     })
   }
 
-  let changeTo = mediaType == "movie" ? "Series" : "Movies"
+  let changeTo = mediaType == "movie" ? "Movies" : "Series"
 
   const loadPages = () => {
     for (let i = 2; i < 10; i++) {
