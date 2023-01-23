@@ -52,37 +52,35 @@ const getBackDropURL = (backdrop_path) => {
 
 // Ensures the description is only 150 characters long.
 const description = (title, overview) => {
-  let length = 230; // Change length of text
-  try {
-    if (title.length > 30) {
-      length = 100
+    let length = 230; // Change length of text
+    try {
+      if (title.length > 30) {
+        length = 100
+      }
+      else if (title.length > 25) {
+        length = 140
+      }
+      else if (title.length > 16 && title.length < 25) {
+      length = 170
     }
-    else if (title.length > 25) {
-      length = 140
+  } catch (e) {
+      console.log(e)
     }
-    else if (title.length > 16 && title.length < 25) {
-    length = 170
-  }
- 
-  
-} catch (e) {
-    console.log(e)
-  }
 
-  // Adds ... to the end. Checks to make sure if the cut off is at a space, or the end of a sentence. 
-  if (overview.length > length) {
-    if (overview.slice(length - 1, length) === '.') {
-      return overview.slice(0, length - 1) + "..."
+    // Adds ... to the end. Checks to make sure if the cut off is at a space, or the end of a sentence. 
+    if (overview.length > length) {
+      if (overview.slice(length - 1, length) === '.') {
+        return overview.slice(0, length - 1) + "..."
+      }
+      else if (overview.slice(length - 1, length) === ' ') {
+        return overview.slice(0, length - 1) + "..."
+      }
+      else {
+      return overview.slice(0, length) + "..."
+      }
+    } else {
+      return overview;
     }
-    else if (overview.slice(length - 1, length) === ' ') {
-      return overview.slice(0, length - 1) + "..."
-    }
-    else {
-    return overview.slice(0, length) + "..."
-    }
-  } else {
-    return overview;
-  }
 }
 
 // Checks to see how well rated the movie is out of 10 then translates it into stars.
@@ -149,7 +147,7 @@ export default function MovieItem({ index, id, backdrop_path, poster_path, title
               <span id="year">{release_date}</span>
             </div>
             <div id="desc">
-            <p>{description(title, overview)}</p>
+            <p>{description(title || name,  overview)}</p>
             </div>
             <div id="genre">
             <p id="genre-text">{setGenre(genre_ids)}</p>

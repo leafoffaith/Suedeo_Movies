@@ -31,17 +31,20 @@ export default function Signup() {
         title={"Full Name"}
         onChange={nameOnChange}
         bg="black"
+        autoComplete="username"
       />
       <TextInput
         value={email}
         title={"Email Address"}
         onChange={emailOnChange}
+        autoComplete="username"
       />
       <TextInput
         value={password}
         title="Password"
         onChange={passwordOnChange}
         type="password"
+        autoComplete="new-password"
       />
       <div>
         <button className="btn btn-xl signup_btn">Signup</button>

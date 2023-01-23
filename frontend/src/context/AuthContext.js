@@ -20,10 +20,11 @@ export const AuthProvider = ({ children }) => {
     user: user ? user : null,
     isLoggedIn: user ? true : false,
   });
+  
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("Reached theeffect, user is : ", state.isLoggedIn);
+    console.log("Reached the useEffect, user is : ", state.isLoggedIn);
     if (state.isLoggedIn === true) {
       navigate("/");
     }
@@ -34,9 +35,11 @@ export const AuthProvider = ({ children }) => {
     axios
       .post(constants.loginEndpoint, { email, password })
       .then((res) => {
-        localStorage.setItem("user", JSON.stringify(res.data));
-        localStorage.setItem("token", JSON.stringify(res.data.token));
-        setState({ ...state, isLoggedIn: true, user: res.data });
+        console.log("working")
+        const data = res.data
+        localStorage.setItem("user", JSON.stringify(data));
+        localStorage.setItem("token", JSON.stringify(data.token));
+        setState({ ...state, user: data, isLoggedIn: true });
       })
       .catch((err) => {
         console.log("setting error state", err.response.data.message);

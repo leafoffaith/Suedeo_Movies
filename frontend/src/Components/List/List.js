@@ -40,7 +40,7 @@ export default function List(props) {
 
   const changeMediaType = () => {
     setMediaType(prevState => {
-      return prevState == "movie" ? "tv" : "movie"
+      return prevState === "movie" ? "tv" : "movie"
     })
     changeMedia()
     loadPages()
@@ -54,7 +54,7 @@ export default function List(props) {
     })
   }
 
-  let changeTo = mediaType == "movie" ? "Movies" : "Series"
+  let changeTo = mediaType === "movie" ? "Movies" : "Series"
 
   const loadPages = () => {
     for (let i = 2; i < 10; i++) {

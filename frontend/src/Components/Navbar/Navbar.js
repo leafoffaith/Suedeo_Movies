@@ -2,7 +2,6 @@ import "./navbar.scss";
 import SettingsIcon from "@mui/icons-material/Settings";
 import SearchIcon from "@mui/icons-material/Search";
 import { IconButton, InputAdornment, TextField } from "@mui/material";
-import { textAlign } from "@mui/system";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
@@ -39,7 +38,7 @@ const Navbar = () => {
             size="small"
             InputProps={{
               endAdornment: (
-                <InputAdornment>
+                <InputAdornment position="end">
                   <IconButton>
                     <SearchIcon className="icon" />
                   </IconButton>

@@ -25,7 +25,7 @@ export default function Login() {
   };
 
   useEffect(() => {
-    console.log("effec treaced, error is : ", error);
+    console.log("Effect traced, error is : ", error);
     if (error) {
       console.log("Found error in effect");
     }
@@ -42,6 +42,7 @@ export default function Login() {
             value={email}
             onChange={emailOnChange}
             className="text-input"
+            autoComplete="username"
           />
         </div>
         <div className="login__email_container text-input-field-container">
@@ -51,6 +52,7 @@ export default function Login() {
             value={password}
             onChange={passwordOnChange}
             className="text-input"
+            autoComplete="current-password"
           />
         </div>
         <button className="btn btn-lg">Login</button>

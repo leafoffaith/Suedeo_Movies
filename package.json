@@ -20,7 +20,8 @@
   "devDependencies": {
     "concurrently": "^7.6.0",
     "gh-pages": "^4.0.0",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "react-error-overlay": "^6.0.9"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
