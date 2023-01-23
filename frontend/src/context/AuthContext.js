@@ -39,15 +39,12 @@ export const AuthProvider = ({ children }) => {
         const data = res.data
         localStorage.setItem("user", JSON.stringify(data));
         localStorage.setItem("token", JSON.stringify(data.token));
-        setState({ ...state, user: data, isLoggedIn: true });
+        setState({ ...state, user: data, isLoggedIn: true, loading:false});
       })
       .catch((err) => {
         console.log("setting error state", err.response.data.message);
         setState({ ...state, error: "ERROR" });
       })
-      .finally(() => {
-        setState({ ...state, loading: false });
-      });
   };
 
   const signup = (email, password, name) => {
@@ -59,16 +56,13 @@ export const AuthProvider = ({ children }) => {
         const data = res.data;
         localStorage.setItem("user", JSON.stringify(data));
         localStorage.setItem("token", JSON.stringify(data.token));
-        setState({ ...state, isLoggedIn: true, user: data });
+        setState({ ...state, isLoggedIn: true, user: data, loading: false});
       })
       .catch((err) => {
         const msg = err.response.data.message;
         console.log("Signup request failed", msg);
         setState({ ...state, error: msg });
       });
-    // .finally(() => {
-    //   setState({ ...state, loading: false });
-    // });
   };
 
   const logout = () => {
