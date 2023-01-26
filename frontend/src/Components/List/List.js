@@ -73,13 +73,13 @@ export default function List(props) {
 
   return (
     <div className="list">
-      <button 
+      {/* <button 
       type="button"
       className="toggleBtn" 
       onClick={changeMediaType}
       >
       {changeTo}
-      </button>
+      </button> */}
       <div className="wrapper">
        <div className="container">
         {movies.map((movie, index) => {

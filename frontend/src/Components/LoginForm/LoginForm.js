@@ -6,8 +6,8 @@ import ErrorMessages from "../Commons/ErrorMessages/ErrorMessages";
 import "./LoginForm.scss";
 
 export default function Login() {
-  const [email, emailOnChange] = useInput("oefjw@ewfo.com");
-  const [password, passwordOnChange] = useInput("ewfojewfojf");
+  const [email, emailOnChange] = useInput("test5@gmail.com");
+  const [password, passwordOnChange] = useInput("123");
   const { login, isLoggedIn, loading, error } = useContext(AuthContext);
   const [errors, setErrors] = useState([]);
   console.log(isLoggedIn);
